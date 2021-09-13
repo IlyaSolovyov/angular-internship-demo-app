@@ -1,0 +1,20 @@
+{
+  "General": {
+    "ApplicationName": "Internship demo",
+    "Entities": {
+      "Patient": "Patient"
+    },
+    "Common": {
+      "All": "All"
+    },
+    "Navigation": {
+      "Home": "Home",
+      "Doctors": "Doctors",
+      "Admin": "Admin"
+    }
+  },
+  "Patient": {
+    "Columns": {
+    }
+  }
+}

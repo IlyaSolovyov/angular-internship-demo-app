@@ -1,2 +1,37 @@
-<p>app works!</p>
-<router-outlet></router-outlet>
+<div class="wrapping-div">
+  <mat-toolbar class="app-header header " color="primary">
+    <mat-toolbar-row class="row-padding">
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sideNavigation [mode]="'side'" [opened]="true" class="side-menu mat-elevation-z2">
+      <div class="side-menu-inner">
+        <mat-nav-list>
+          <!--Home-->
+          <a mat-list-item mat-line class="home-menu-item" [routerLink]="homeLink" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <mat-icon>home</mat-icon>
+            <span class="nav-caption">{{'General.Navigation.Home' | translate}}</span>
+          </a>
+          <!--Doctors-->
+          <a mat-list-item mat-line class="doctors-menu-item" [routerLink]="doctorsLink" routerLinkActive="active-link">
+            <mat-icon>health_and_safety</mat-icon>
+            <span class="nav-caption">{{'General.Navigation.Doctors' | translate}}</span>
+          </a>
+          <!--Admin-->
+          <a mat-list-item mat-line class="admin-menu-item" [routerLink]="adminLink" routerLinkActive="active-link">
+            <mat-icon>admin_panel_settings</mat-icon>
+            <span class="nav-caption">{{'General.Navigation.Admin' | translate}}</span>
+          </a>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>

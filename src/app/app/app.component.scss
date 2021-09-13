@@ -1,0 +1,46 @@
+:host {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.side-menu {
+  width: 250px;
+  position: fixed;
+  top: 64px;
+
+  i {
+    margin-left: 15px;
+    margin-right: 25px;
+  }
+
+}
+
+.app-header {
+   color: white;
+}
+
+.mat-list-base {
+  padding-top: 0;
+}
+
+mat-sidenav {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu-inner {
+  height: 100%;
+}
+
+
+.wrapping-div {
+  position: relative;
+  min-height: 100vh;
+}
+
+.admin-menu-item {
+  color: darkred;
+}
