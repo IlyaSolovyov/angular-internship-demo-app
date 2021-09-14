@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthorizationGuard } from '../shared/guards/authorization.guard';
 
 import { AppRoutes } from './../shared/constants/app-routes.const';
-import { DoctorsListComponent } from './doctors-list/doctors-list.component';
+import { DoctorsListComponent } from './components/doctors-list/doctors-list.component';
 
 
 const routes: Routes = [

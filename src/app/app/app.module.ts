@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import { DoctorService } from '../doctor/services/doctor/doctor.service';
 import { AdminGuard } from '../shared/guards/admin.guard';
 import { AuthorizationGuard } from '../shared/guards/authorization.guard';
 import { AuthStore } from '../shared/stores/auth.store';
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     AuthorizationGuard,
     AdminGuard,
     AuthStore,
+    DoctorService,
   ],
   bootstrap: [AppComponent],
 })

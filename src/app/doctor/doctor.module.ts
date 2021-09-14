@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { DoctorsListComponent } from './components/doctors-list/doctors-list.component';
 import { DoctorRoutingModule } from './doctor-routing.module';
-import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 
 @NgModule({
   declarations: [
