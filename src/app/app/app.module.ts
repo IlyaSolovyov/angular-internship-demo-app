@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule, } from '@angular/common/http';
+import { AuthorizationGuard } from '../shared/guards/authorization.guard';
+import { AdminGuard } from '../shared/guards/admin.guard';
+import { AuthStore } from '../shared/stores/auth.store';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,7 +39,11 @@ export function createTranslateLoader(http: HttpClient) {
     HomeModule,
     DoctorModule
   ],
-  providers: [],
+  providers: [
+    AuthorizationGuard,
+    AdminGuard,
+    AuthStore,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,17 @@
 <div class="wrapping-div">
   <mat-toolbar class="app-header header " color="primary">
     <mat-toolbar-row class="row-padding">
+      <span>My App</span>
+      <span class="spacer"></span>
+      <button mat-icon-button class="icon" *ngIf="!user" (click)="signIn()">
+        <mat-icon>login</mat-icon>
+      </button>
+      <button mat-icon-button class="icon" *ngIf="!user" (click)="signInAsAdmin()">
+        <mat-icon>admin_panel_settings</mat-icon>
+      </button>
+      <button mat-icon-button class="icon" *ngIf="user" (click)="signOut()">
+        <mat-icon>logout</mat-icon>
+      </button>
     </mat-toolbar-row>
   </mat-toolbar>
   <mat-sidenav-container class="sidenav-container">

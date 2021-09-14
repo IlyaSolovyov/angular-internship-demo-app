@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AppRoutes } from '../shared/constants/app-routes.const';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AuthStore } from '../shared/stores/auth.store';
+import { User } from '../shared/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +16,34 @@ export class AppComponent {
   doctorsLink: string = AppRoutes.doctor;
   adminLink: string = AppRoutes.admin;
 
-  constructor(translate: TranslateService) {
+  user: User | null = null;
+
+  constructor(
+    private translate: TranslateService,
+    private authStore: AuthStore,
+    private router: Router,
+  ) {
     translate.setDefaultLang('en');
     translate.use('en');
-}
+  }
+
+  ngOnInit() {
+    this.authStore.getAuthUser
+      .subscribe((user) => {
+        this.user = user;
+      });
+  }
+
+  signIn() {
+    this.authStore.authenticate();
+  }
+
+  signInAsAdmin(){
+    this.authStore.authenticateAsAdmin();
+  }
+
+  signOut() {
+    this.authStore.signOut();
+    this.router.navigate([AppRoutes.home]).then();
+  }
 }
