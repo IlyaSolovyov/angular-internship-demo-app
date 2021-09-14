@@ -12,7 +12,7 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [
     CommonModule,
     TranslateModule.forRoot(),
-    AdminRoutingModule
+    AdminRoutingModule,
   ],
 })
 export class AdminModule { }

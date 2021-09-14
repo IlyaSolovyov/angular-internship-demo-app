@@ -12,14 +12,14 @@ export class AuthStore {
 
   authenticate(): void {
     //Some real authentication logic would go here
-    const user = new User(2, "Regular User", false)
+    const user = new User(2, 'Regular User', false);
     return this.authUser$.next(user);
   }
 
   
   authenticateAsAdmin(): void {
     //Some real authentication logic would go here
-    const user = new User(2, "Admin User", true)
+    const user = new User(2, 'Admin User', true);
     return this.authUser$.next(user);
   }
 

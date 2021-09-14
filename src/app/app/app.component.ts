@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppRoutes } from '../shared/constants/app-routes.const';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthStore } from '../shared/stores/auth.store';
@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   homeLink: string = AppRoutes.home;
   doctorsLink: string = AppRoutes.doctor;
   adminLink: string = AppRoutes.admin;

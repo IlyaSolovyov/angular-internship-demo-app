@@ -7,11 +7,11 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 
 @NgModule({
   declarations: [
-    HomeScreenComponent
+    HomeScreenComponent,
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
-  ]
+    HomeRoutingModule,
+  ],
 })
 export class HomeModule { }

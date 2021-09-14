@@ -1,4 +1,4 @@
-import { BaseModel } from "./base.model";
+import { BaseModel } from './base.model';
 
 export class User extends BaseModel {
   userName: string;
@@ -7,7 +7,7 @@ export class User extends BaseModel {
   constructor(
     id: number,
     userName: string,
-    isAdmin: boolean
+    isAdmin: boolean,
   ) {
     super(id);
 

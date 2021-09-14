@@ -10,19 +10,19 @@ import { AuthStore } from '../stores/auth.store';
 export class AuthorizationGuard implements CanActivate {
   constructor(
     private router: Router,
-    private authStore: AuthStore
+    private authStore: AuthStore,
   ) { }
 
   canActivate(): Observable<boolean> | boolean {
-    console.log("Running authorization guard.");
+    console.log('Running authorization guard.');
     
     return this.authStore.getAuthUser.pipe(map((user) => {
       if (user) {
-        console.log("User is authorized; navigation allowed.")
+        console.log('User is authorized; navigation allowed.');
         return true;
       }
 
-      console.log("User is not authorized; redirecting to home screen.")
+      console.log('User is not authorized; redirecting to home screen.');
       this.router.navigate([AppRoutes.home]).then();
 
       return false;

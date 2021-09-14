@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule, } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthorizationGuard } from '../shared/guards/authorization.guard';
 import { AdminGuard } from '../shared/guards/admin.guard';
 import { AuthStore } from '../shared/stores/auth.store';
@@ -30,20 +30,20 @@ export function createTranslateLoader(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     MaterialModule,
     AppRoutingModule,
     AdminModule,
     HomeModule,
-    DoctorModule
+    DoctorModule,
   ],
   providers: [
     AuthorizationGuard,
     AdminGuard,
     AuthStore,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
