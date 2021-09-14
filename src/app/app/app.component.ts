@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AppRoutes } from '../shared/constants/app-routes.const';
-import { TranslateService } from '@ngx-translate/core';
-import { AuthStore } from '../shared/stores/auth.store';
-import { User } from '../shared/models/user';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
+import { AppRoutes } from '../shared/constants/app-routes.const';
+import { User } from '../shared/models/user';
+import { AuthStore } from '../shared/stores/auth.store';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit {
   homeLink: string = AppRoutes.home;
+
   doctorsLink: string = AppRoutes.doctor;
+
   adminLink: string = AppRoutes.admin;
 
   user: User | null = null;

@@ -18,9 +18,13 @@
       "extends": [
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
-        "airbnb-typescript/base"
+        "airbnb-typescript/base",
+        "plugin:import/recommended"
       ],
-      "plugins": ["import"],
+      "plugins": [
+        "import",
+        "sort-imports-es6-autofix"
+      ],
       "rules": {
         "@angular-eslint/component-selector": [
           "error",
@@ -39,11 +43,22 @@
           }
         ],
         "linebreak-style": ["error", "windows"],
-        "@typescript-eslint/lines-between-class-members": "off",
         "import/prefer-default-export": "off",
         "no-nested-ternary": "off",
         "consistent-return": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "import/named":"off",
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "parent", "sibling", "index"],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ]
       }
     },
     {
