@@ -13,8 +13,12 @@
       "Admin": "Admin"
     }
   },
-  "Patient": {
+  "Doctor": {
     "Columns": {
+      "Id": "ID",
+      "FirstName": "First Name",
+      "LastName": "Last Name",
+      "SuccessfulOperationsNumber": "Successful operations"
     }
   }
 }
