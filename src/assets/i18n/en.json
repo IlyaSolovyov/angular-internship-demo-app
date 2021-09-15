@@ -14,6 +14,9 @@
     }
   },
   "Doctor": {
+    "Controls": {
+      "Search": "Search by name"
+    },
     "Columns": {
       "Id": "ID",
       "FirstName": "First Name",

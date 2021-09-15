@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 
 import { Doctor } from '../../models/doctor';
 import { DoctorService } from '../../services/doctor/doctor.service';
@@ -12,24 +13,47 @@ import { DoctorService } from '../../services/doctor/doctor.service';
 })
 export class DoctorsListComponent implements OnInit, AfterViewInit {
   doctors: Doctor[] = [];
+  dataSource: MatTableDataSource<Doctor> = new MatTableDataSource<Doctor>([]);
 
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'successfulOperationsNumber'];
-  dataSource: MatTableDataSource<Doctor> = new MatTableDataSource<Doctor>(this.doctors);
 
+  @ViewChild(MatTable) doctorTable!: MatTable<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private doctorService: DoctorService) { }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
-
-  constructor(private doctorService: DoctorService) { }
 
   ngOnInit() {
     this.doctorService.getDoctors().subscribe(doctors => {
       this.doctors = doctors;
 
-      this.dataSource = new MatTableDataSource<Doctor>(doctors);
-      console.log('this.doctors', this.doctors);
+      this.dataSource.data = doctors;
     });
   }
+
+  onSearch(input: HTMLInputElement) {
+    if (input.value.length < 3) {
+      if (this.doctors.length !== this.dataSource.data.length) {
+        this.dataSource.data = this.doctors;
+      }
+
+      return;
+    }
+
+    const searchString = input.value.toLowerCase();
+    const matchingDoctors = this.doctors.filter(doctor => {
+      const combinedName = `${doctor.firstName} ${doctor.lastName}`.toLowerCase();
+
+      return combinedName.includes(searchString);
+    });
+
+    this.dataSource.data = matchingDoctors;
+  }
+
+
 }

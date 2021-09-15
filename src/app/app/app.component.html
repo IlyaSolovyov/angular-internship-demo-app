@@ -1,7 +1,7 @@
 <div class="wrapping-div">
   <mat-toolbar class="app-header header " color="primary">
     <mat-toolbar-row class="row-padding">
-      <span>My App</span>
+      <span>{{'General.ApplicationName' | translate}}</span>
       <span class="spacer"></span>
       <button mat-icon-button class="icon" *ngIf="!user" (click)="signIn()">
         <mat-icon>login</mat-icon>
@@ -25,12 +25,12 @@
             <span class="nav-caption">{{'General.Navigation.Home' | translate}}</span>
           </a>
           <!--Doctors-->
-          <a mat-list-item mat-line class="doctors-menu-item" [routerLink]="doctorsLink" routerLinkActive="active-link">
+          <a *ngIf="user" mat-list-item mat-line class="doctors-menu-item" [routerLink]="doctorsLink" routerLinkActive="active-link">
             <mat-icon>health_and_safety</mat-icon>
             <span class="nav-caption">{{'General.Navigation.Doctors' | translate}}</span>
           </a>
           <!--Admin-->
-          <a mat-list-item mat-line class="admin-menu-item" [routerLink]="adminLink" routerLinkActive="active-link">
+          <a *ngIf="user?.isAdmin" mat-list-item mat-line class="admin-menu-item" [routerLink]="adminLink" routerLinkActive="active-link">
             <mat-icon>admin_panel_settings</mat-icon>
             <span class="nav-caption">{{'General.Navigation.Admin' | translate}}</span>
           </a>
