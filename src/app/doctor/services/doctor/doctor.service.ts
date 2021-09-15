@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { CreateDoctorRequest } from 'src/app/admin/models/create-doctor-request.model';
 
-import { Doctor } from '../../models/doctor';
+import { Doctor } from '../../models/doctor.model';
 
 const stubDoctors: Doctor[] = [
   new Doctor(1, 'Doctor', 'One', 234),
@@ -30,5 +31,11 @@ export class DoctorService {
   getDoctors(): Observable<Doctor[]> {
     //return this.http.get<Doctor[]>(this.doctorsUrl);
     return of(stubDoctors);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  createDoctor(request: CreateDoctorRequest): Observable<Doctor | null> {
+    //return this.http.post("someUrl", facilityRoute);
+    return of(null);
   }
 }

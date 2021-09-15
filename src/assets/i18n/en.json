@@ -5,12 +5,22 @@
       "Patient": "Patient"
     },
     "Common": {
-      "All": "All"
+      "All": "All",
+      "Close": "Close",
+      "Save": "Submit"
     },
     "Navigation": {
       "Home": "Home",
       "Doctors": "Doctors",
       "Admin": "Admin"
+    },
+    "Validation": {
+      "Required": "This field is required.",
+      "MaxFieldLength1": "A field must be less than ",
+      "MaxFieldLength2": " characters"
+    },
+    "Errors":{
+      "RequestFailed": "Request failed"
     }
   },
   "Doctor": {
@@ -22,6 +32,18 @@
       "FirstName": "First Name",
       "LastName": "Last Name",
       "SuccessfulOperationsNumber": "Successful operations"
+    }
+  },
+  "Admin":{
+    "Forms":{
+      "Doctor":{
+        "Success": "Successfully created!",
+        "Form":{
+          "FirstName": "First Name",
+          "LastName": "LastName",
+          "Operations": "Successful Operations"
+        }
+      }
     }
   }
 }

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="form-container">
+        <form [formGroup]="doctorGroup" (ngSubmit)="onSubmit()">
+            <div class="edit-doctor-container">
+                <div class="form-row">
+                    <!--First Name-->
+                    <mat-form-field style="flex: 1" class="first-name-field">
+                        <input required matInput type="text"
+                            placeholder="{{ 'Admin.Forms.Doctor.Form.FirstName' | translate }}"
+                            formControlName="firstNameControl" />
+                        <mat-error *ngIf="doctorGroup.get('firstNameControl')?.hasError('required')">
+                            {{ 'General.Validation.Required' | translate }}
+                        </mat-error>
+                        <mat-error *ngIf="doctorGroup.get('firstNameControl')?.hasError('maxlength')">
+                            {{ 'General.Validation.MaxFieldLength1' | translate }} {{ maxNameLength }} {{
+                            'General.Validation.MaxFieldLength2' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row">
+                    <!--Last Name-->
+                    <mat-form-field style="flex: 1" class="last-name-field">
+                        <input required matInput type="text"
+                            placeholder="{{ 'Admin.Forms.Doctor.Form.LastName' | translate }}"
+                            formControlName="lastNameControl" />
+                        <mat-error *ngIf="doctorGroup.get('lastNameControl')?.hasError('required')">
+                            {{ 'General.Validation.Required' | translate }}
+                        </mat-error>
+                        <mat-error *ngIf="doctorGroup.get('lastNameControl')?.hasError('maxlength')">
+                            {{ 'General.Validation.MaxFieldLength1' | translate }} {{ maxNameLength }} {{
+                            'General.Validation.MaxFieldLength2' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-row">
+                    <!--Operations-->
+                    <mat-form-field style="flex: 1" class="operations-field">
+                        <input required matInput type="number"
+                            placeholder="{{ 'Admin.Forms.Doctor.Form.Operations' | translate }}"
+                            formControlName="operationsControl" />
+                        <mat-error *ngIf="doctorGroup.get('operationsControl')?.hasError('required')">
+                            {{ 'General.Validation.Required' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="buttons-section">
+                <button type="submit" mat-flat-button color="accent">
+                    {{'General.Common.Save' | translate }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
