@@ -46,6 +46,10 @@ Linting:
 https://www.darraghoriordan.com/2020/03/06/upgrade-tslint-deprecated-to-eslint/
 https://github.com/iamturns/eslint-config-airbnb-typescript
 
+Authorization:
+https://www.syncfusion.com/blogs/post/best-practices-for-jwt-authentication-in-angular-apps.aspx
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-api-authorization?view=aspnetcore-5.0
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
