@@ -2,6 +2,10 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { NavigationExtras, Router } from '@angular/router';
+import { AppRoutes } from 'src/app/shared/constants/app-routes.const';
+import { User } from 'src/app/shared/models/user';
+import { AuthStore } from 'src/app/shared/stores/auth.store';
 
 import { Doctor } from '../../models/doctor.model';
 import { DoctorService } from '../../services/doctor/doctor.service';
@@ -15,13 +19,23 @@ export class DoctorsListComponent implements OnInit, AfterViewInit {
   doctors: Doctor[] = [];
   dataSource: MatTableDataSource<Doctor> = new MatTableDataSource<Doctor>([]);
 
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'successfulOperationsNumber'];
+  displayedColumns: string[] = [
+    'id',
+    'firstName',
+    'lastName',
+    'successfulOperationsNumber',
+    'edit'];
 
   @ViewChild(MatTable) doctorTable!: MatTable<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private doctorService: DoctorService) { }
+  private user: User | null = null;
+
+  constructor(
+    private doctorService: DoctorService,
+    private authStore: AuthStore,
+    private router: Router) { }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -29,6 +43,11 @@ export class DoctorsListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.authStore.getAuthUser
+      .subscribe((user) => {
+        this.user = user;
+      });
+
     this.doctorService.getDoctors().subscribe(doctors => {
       this.doctors = doctors;
 
@@ -55,5 +74,12 @@ export class DoctorsListComponent implements OnInit, AfterViewInit {
     this.dataSource.data = matchingDoctors;
   }
 
+  navigateToEditDoctor(doctor: Doctor) {
+    const extras: NavigationExtras = {
+      state: { doctor },
+    };
 
+    const doctorId = doctor.id.toString();
+    this.router.navigate([AppRoutes.editDoctor.replace(':doctorId', doctorId)], extras).then();
+  }
 }

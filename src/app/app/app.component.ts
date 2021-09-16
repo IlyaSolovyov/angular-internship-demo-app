@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   doctorsLink: string = AppRoutes.doctor;
 
-  adminLink: string = AppRoutes.admin;
+  adminLink: string = AppRoutes.editDoctor.replace(':doctorId', '0');
 
   user: User | null = null;
 

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CreateDoctorRequest } from 'src/app/admin/models/create-doctor-request.model';
+import { UpdateDoctorRequest } from 'src/app/admin/models/update-doctor-request.model';
 
 import { Doctor } from '../../models/doctor.model';
 
@@ -35,6 +36,12 @@ export class DoctorService {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   createDoctor(request: CreateDoctorRequest): Observable<Doctor | null> {
+    //return this.http.post("someUrl", facilityRoute);
+    return of(null);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  updateDoctor(request: UpdateDoctorRequest): Observable<Doctor | null> {
     //return this.http.post("someUrl", facilityRoute);
     return of(null);
   }

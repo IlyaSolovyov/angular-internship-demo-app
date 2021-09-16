@@ -12,7 +12,7 @@
     "Navigation": {
       "Home": "Home",
       "Doctors": "Doctors",
-      "Admin": "Admin"
+      "Admin": "Admin (Edit doctors)"
     },
     "Validation": {
       "Required": "This field is required.",
@@ -31,13 +31,15 @@
       "Id": "ID",
       "FirstName": "First Name",
       "LastName": "Last Name",
-      "SuccessfulOperationsNumber": "Successful operations"
+      "SuccessfulOperationsNumber": "Successful operations",
+      "Edit": "Edit"
     }
   },
   "Admin":{
     "Forms":{
       "Doctor":{
-        "Success": "Successfully created!",
+        "Success": "Successfully created new doctor.",
+        "UpdateSuccess": "Successfully updated existing doctor.",
         "Form":{
           "FirstName": "First Name",
           "LastName": "LastName",
