@@ -13,6 +13,7 @@ export class AuthStore {
 
   authenticate(): void {
     //Some real authentication logic would go here
+    localStorage.setItem('token', 'some-user-token');
     const user = new User(2, 'Regular User', false);
     return this.authUser$.next(user);
   }
@@ -20,12 +21,19 @@ export class AuthStore {
   
   authenticateAsAdmin(): void {
     //Some real authentication logic would go here
+    localStorage.setItem('token', 'some-admin-token');
     const user = new User(2, 'Admin User', true);
+    
     return this.authUser$.next(user);
   }
 
   signOut(): void {
+    localStorage.removeItem('token');
     return this.authUser$.next(null);
+  }
+
+  getAccessToken(): string | null{
+    return localStorage.getItem('token');
   }
 
 
